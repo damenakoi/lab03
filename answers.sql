@@ -2,7 +2,6 @@
 SELECT * FROM users;
 
 
-
 -- Exercise 2 (done for you):
 SELECT id, first_name, last_name 
 FROM users;
@@ -45,6 +44,11 @@ WHERE posts.user_id = 12 or posts.user_id = 26;
 
 
 -- Exercise 9
+SELECT posts.id, posts.pub_date, following.user_id
+FROM posts
+INNER JOIN following ON following.following_id = posts.user_id
+WHERE following.user_id = 26;
+
 
 
 
@@ -55,18 +59,30 @@ WHERE posts.user_id = 12 or posts.user_id = 26;
 
 
 -- Exercise 11
+INSERT INTO bookmarks(user_id, post_id)
+VALUES (26, 219);
 
+INSERT INTO bookmarks(user_id, post_id)
+VALUES (26, 220);
 
+INSERT INTO bookmarks(user_id, post_id)
+VALUES (26, 221);
 
 
 -- Exercise 12
+DELETE FROM bookmarks
+WHERE user_id = 26 AND post_id = 219;
 
+DELETE FROM bookmarks
+WHERE user_id = 26 AND post_id = 220;
 
-
+DELETE FROM bookmarks
+WHERE user_id = 26 AND post_id = 221;
 
 -- Exercise 13
-
-
+UPDATE users
+SET email = 'cyoung2022@gmail.com' 
+WHERE id = 26;
 
 
 -- Exercise 14
